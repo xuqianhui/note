@@ -1,0 +1,287 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+\usepackage {layout}%输出页面布局
+\usepackage {menukeys}
+\usepackage {footnote} 
+\makesavenoteenv {tabular}
+\usepackage[bottom]{footmisc}
+\usepackage {placeins}
+\usepackage{scrextend}%labeling环境
+\usepackage[inline]{enumitem}%内联列表
+\usepackage{xcolor}
+\usepackage{tasks}%水平列表
+\usepackage{lettrine}%首字浮沉
+\usepackage{alltt}%逐字文本
+\usepackage{hyperref}
+\usepackage{dirtree}
+\usepackage{multicol}
+\usepackage[style]{fncychap}
+\usepackage{forest}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package default
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Maven安装及相关配置
+\end_layout
+
+\begin_layout Section
+在基于 Unix 的系统上安装 Maven 
+\end_layout
+
+\begin_layout Standard
+在安装 Maven 之前，首先要确认你已经正确安装了 JDK。Maven 可以运行在 JDK 1.4 及以上的版本上。需要检查 JAVA_HOME
+ 环境变量以及 Java 命令。
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+echo $JAVA_HOME
+\end_layout
+
+\begin_layout Plain Layout
+
+java –version
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+接着到 http://maven.apache.org/download.html 下载 Maven 安装文件，如 apache-maven-3.0-bin.tar.gz，
+然后解压到本地目录：
+\end_layout
+
+\begin_layout Standard
+tar -xvzf apache-maven-3.0-bin.tar.gz 
+\end_layout
+
+\begin_layout Standard
+现在已经创建好了一个 Maven 安装目录 apache-maven-3.0，虽然直接使用该目录配置环境变量之后就能使用 Maven 了，但这里我更推荐做法是，在
+安装目录旁平行地创建一个符号链接，以方便日后的升级：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+ln -s apache-maven-3.0 apache-maven
+\end_layout
+
+\begin_layout Plain Layout
+
+ls -l
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+接下来，需要设置 M2_HOME 环境变量指向符号链接 apache-maven，并且把 Maven 安装目录下的 bin/ 文件夹添加到系统环境变量
+ PATH 中去：编辑~/.bashrc 文件，添加以下两行命令。这样，每次启动一个终端，这些配置就能自动执行。
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+export M2_HOME=/home/juven/bin/apache-maven
+\end_layout
+
+\begin_layout Plain Layout
+
+export PATH=$PATH:$M2_HOME/bin
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+检查 Maven 安装：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+echo $M2_HOME
+\end_layout
+
+\begin_layout Plain Layout
+
+mvn -version
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+升级 Maven
+\end_layout
+
+\begin_layout Standard
+在基于 Unix 的系统上，可以利用符号链接这一工具来简化 Maven 的升级，不必像在 Windows 上那样，每次 升级都必须更新环境变量。
+\end_layout
+
+\begin_layout Standard
+解压 Maven 安装包到本地之后，平行地创建一个符号链接，然后在配置环境变量时引 用该符号链接，这样做是为了方便升级。现在，假设我们需要升级到新的
+ Maven 3.1 版本，同理，将安装包解压 到与前一版本平行的目录下，然后更新符号链接指向 3.1 版的目录便可：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+rm apache-maven
+\end_layout
+
+\begin_layout Plain Layout
+
+ln -s apache-maven-3.1/ apache-maven
+\end_layout
+
+\begin_layout Plain Layout
+
+ls -l
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+同理，可以很方便地切换到 Maven 的任意一个版本。升级完成了，可以运行 mvn -v 进行检查。
+\end_layout
+
+\begin_layout Section
+设置 MAVEN_OPTS 环境变量
+\end_layout
+
+\begin_layout Standard
+运行 mvn 命令实际上是执行了 Java 命令,既然是运行 Java, 那么运行 Java 命令可用的参数当然也应该在运行 mvn 命令时可用。这个时候,
+ MAVEN_OPTS 环境变量就能派上 用场。
+\end_layout
+
+\begin_layout Standard
+我们通常需要设置 MAVEN_OPTS 的值为:-Xms128m -Xmx512m,因为 Java 默认的最大可用内存往往不能够 满足 Maven
+ 运行的需要,比如在项目较大时,使用 Maven 生成项目站点需要占用大量的内存,如果没有该配置, 我们很容易得到 java.lang.OutOfMemeoryEr
+ror。
+\end_layout
+
+\begin_layout Section
+配置用户范围 settings.xml
+\end_layout
+
+\begin_layout Standard
+Maven 用户可以选择配置$M2_HOME/conf/settings.xml 或者~/.m2/settings.xml。前者是全局范围的,整台机器
+ 上的所有用户都会直接受到该配置的影响,而后者是用户范围的,只有当前用户才会受到该配置的影响。 我们推荐使用用户范围的 settings.xml,主要原因是为了避
+免无意识地影响到系统中的其他用户。当然,如果 你有切实的需求,需要统一系统中所有用户的 settings.xml 配置,当然应该使用全局范围的 settings.x
+ml。 除了影响范围这一因素,配置用户范围 settings.xml 文件还便于 Maven 升级。直接修改 conf 目录下的 settings.xml
+ 会导致 Maven 升级不便,每次升级到新版本的 Maven,都需要复制 settings.xml 文件,如果使用~/.m2 目录下的 settings.xml,就
+不会影响到 Maven 安装文件,升级时就不需要触动 settings.xml 文件。
+\end_layout
+
+\begin_layout Section
+修改IDE内嵌maven版本
+\end_layout
+
+\begin_layout Standard
+在 m2eclipse 环境中,点击菜单栏中的 Windows,然后选择 Preferences,在弹出的对话框中,展开左边的 Maven 项,选择
+ Installation 子项,在右边的面板中,我们能够看到有一个默认的 Embedded Maven 安装被选中 了,点击 Add...然后选择我们的
+ Maven 安装目录 M2_HOME
+\end_layout
+
+\end_body
+\end_document
