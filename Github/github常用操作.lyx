@@ -115,7 +115,11 @@ github常用操作
 \end_layout
 
 \begin_layout Standard
-返回工作区上一步：git reset HEAD^
+返回commit上一步：git reset HEAD^
+\end_layout
+
+\begin_layout Standard
+和checkout区别，checkout是丢弃工作区改动
 \end_layout
 
 \begin_layout Standard
