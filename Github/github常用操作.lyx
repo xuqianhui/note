@@ -90,28 +90,40 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Title
 github常用操作
 \end_layout
 
-\begin_layout Standard
-git remote add upstream account
+\begin_layout Section
+合并
 \end_layout
 
 \begin_layout Standard
-git pull upstream master
+创建上游分支：git remote add upstream account
 \end_layout
 
 \begin_layout Standard
-git push origin master
+合并更新：git pull upstream master
 \end_layout
 
 \begin_layout Standard
-git reset HEAD^
+推送到本地：git push origin master
+\end_layout
+
+\begin_layout Section
+撤回
 \end_layout
 
 \begin_layout Standard
-git push origin HEAD - -force
+返回commit上一步：git reset HEAD^
+\end_layout
+
+\begin_layout Standard
+和checkout区别，checkout是丢弃工作区改动
+\end_layout
+
+\begin_layout Standard
+返回已经push的上一步：git push origin HEAD - -force
 \end_layout
 
 \end_body
