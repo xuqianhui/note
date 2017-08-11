@@ -90,36 +90,122 @@
 
 \begin_body
 
-\begin_layout Title
-github常用操作
-\end_layout
-
-\begin_layout Section
-合并
+\begin_layout Standard
+项目部署到wildfly
 \end_layout
 
 \begin_layout Standard
-创建上游分支：git remote add upstream account
+错误信息
 \end_layout
 
 \begin_layout Standard
-合并更新：git pull upstream master
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+No plugin found for prefix 'wildfly' in the current project and in the plugin
+ groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories
+ [local (/home/krishnen/.m2/repository), codehaus-snapshots (http://nexus.codehaus.
+org/snapshots/), central (http://repo.maven.apache.org/maven2)]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-推送到本地：git push origin master
-\end_layout
-
-\begin_layout Section
-撤回
+有两种方式
 \end_layout
 
 \begin_layout Standard
-返回工作区上一步：git reset HEAD^
+在settings.xml文件中添加以下内容（我测试不可行）：
 \end_layout
 
 \begin_layout Standard
-返回已经push的上一步：git push origin HEAD - -force
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<pluginGroups>   
+\end_layout
+
+\begin_layout Plain Layout
+
+  <pluginGroup>org.wildfly.plugins</pluginGroup> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</pluginGroups>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+添加这个插件到你的pom.xml：
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+<build>    
+\end_layout
+
+\begin_layout Plain Layout
+
+  <plugins>       
+\end_layout
+
+\begin_layout Plain Layout
+
+    <plugin>             
+\end_layout
+
+\begin_layout Plain Layout
+
+      <groupId>org.wildfly.plugins</groupId>             
+\end_layout
+
+\begin_layout Plain Layout
+
+      <artifactId>wildfly-maven-plugin</artifactId>             
+\end_layout
+
+\begin_layout Plain Layout
+
+      <version>1.0.2.Final</version>         
+\end_layout
+
+\begin_layout Plain Layout
+
+    </plugin>     
+\end_layout
+
+\begin_layout Plain Layout
+
+  </plugins> 
+\end_layout
+
+\begin_layout Plain Layout
+
+</build>
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

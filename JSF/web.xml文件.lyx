@@ -90,36 +90,8 @@
 
 \begin_body
 
-\begin_layout Title
-github常用操作
-\end_layout
-
-\begin_layout Section
-合并
-\end_layout
-
 \begin_layout Standard
-创建上游分支：git remote add upstream account
-\end_layout
-
-\begin_layout Standard
-合并更新：git pull upstream master
-\end_layout
-
-\begin_layout Standard
-推送到本地：git push origin master
-\end_layout
-
-\begin_layout Section
-撤回
-\end_layout
-
-\begin_layout Standard
-返回工作区上一步：git reset HEAD^
-\end_layout
-
-\begin_layout Standard
-返回已经push的上一步：git push origin HEAD - -force
+web.xml
 \end_layout
 
 \end_body

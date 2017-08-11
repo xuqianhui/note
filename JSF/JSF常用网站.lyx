@@ -91,35 +91,62 @@
 \begin_body
 
 \begin_layout Title
-github常用操作
+JSF常用网站
 \end_layout
 
 \begin_layout Section
-合并
+oracle
 \end_layout
 
 \begin_layout Standard
-创建上游分支：git remote add upstream account
+The Java EE 5 Tutorial：http://docs.oracle.com/cd/E19159-01/819-3669/6n5sg7b8o/inde
+x.html
 \end_layout
 
 \begin_layout Standard
-合并更新：git pull upstream master
+The Java EE 6 Tutorial：http://docs.oracle.com/javaee/6/tutorial/doc/docinfo.html
 \end_layout
 
 \begin_layout Standard
-推送到本地：git push origin master
+7 JavaServer Faces Technology：https://docs.oracle.com/javaee/7/tutorial/jsf-intro.h
+tm
 \end_layout
 
 \begin_layout Section
-撤回
+others
 \end_layout
 
 \begin_layout Standard
-返回工作区上一步：git reset HEAD^
+coreservlets：http://www.coreservlets.com/JSF-Tutorial/jsf2/#Tutorial-Intro
 \end_layout
 
 \begin_layout Standard
-返回已经push的上一步：git push origin HEAD - -force
+Java EE 6 Overview：http://www.theserverside.com/news/1363662/Java-EE-6-Overview
+\end_layout
+
+\begin_layout Standard
+JSFwiki：https://en.wikipedia.org/wiki/JavaServer_Faces
+\end_layout
+
+\begin_layout Standard
+javaserverfaces-spec：https://javaee.github.io/javaserverfaces-spec/
+\end_layout
+
+\begin_layout Standard
+JAVABEAT：http://javabeat.net/jsf-2/
+\end_layout
+
+\begin_layout Standard
+tutorialspoint：https://www.tutorialspoint.com/jsf/index.htm
+\end_layout
+
+\begin_layout Standard
+JournalDev：http://www.journaldev.com/7058/jsf-expression-language-el-example-tutor
+ial
+\end_layout
+
+\begin_layout Standard
+Mkyong：http://www.mkyong.com/tutorials/jsf-2-0-tutorials/
 \end_layout
 
 \end_body

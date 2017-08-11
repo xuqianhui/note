@@ -90,36 +90,12 @@
 
 \begin_body
 
-\begin_layout Title
-github常用操作
-\end_layout
-
-\begin_layout Section
-合并
+\begin_layout Standard
+LYX表格
 \end_layout
 
 \begin_layout Standard
-创建上游分支：git remote add upstream account
-\end_layout
-
-\begin_layout Standard
-合并更新：git pull upstream master
-\end_layout
-
-\begin_layout Standard
-推送到本地：git push origin master
-\end_layout
-
-\begin_layout Section
-撤回
-\end_layout
-
-\begin_layout Standard
-返回工作区上一步：git reset HEAD^
-\end_layout
-
-\begin_layout Standard
-返回已经push的上一步：git push origin HEAD - -force
+浮动表格不能自动换行，设置列宽即可（每一列分别设置），设置列宽后不仅可以自动换行，还可以自行回车键换行。
 \end_layout
 
 \end_body
