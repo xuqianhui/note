@@ -91,35 +91,56 @@
 \begin_body
 
 \begin_layout Title
-github常用操作
+项目搭建过程
 \end_layout
 
-\begin_layout Section
-合并
+\begin_layout Enumerate
+使用archetype创建项目骨架
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+mvn archetype:generate -DgroupId={project-packaging} -DartifactId={project-name}
+ -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false 
 \end_layout
 
-\begin_layout Standard
-创建上游分支：git remote add upstream account
+\end_inset
+
+
 \end_layout
 
-\begin_layout Standard
-合并更新：git pull upstream master
+\begin_layout Enumerate
+Build Path更改目录结构：
+\begin_inset Newline newline
+\end_inset
+
+在eclipse中右键项目Build Path-Configure Build Path-Java Build Path添加依赖库资源等等
 \end_layout
 
-\begin_layout Standard
-推送到本地：git push origin master
+\begin_layout Enumerate
+创建package：
+\begin_inset Newline newline
+\end_inset
+
+在Java Resources下刚构建的src/main/java路径右击new一个package
 \end_layout
 
-\begin_layout Section
-撤回
+\begin_layout Enumerate
+配置pom.xml和web.xml（不一定需要）文件
+\begin_inset Newline newline
+\end_inset
+
+包含部署到wildly，jsf依赖等等
 \end_layout
 
-\begin_layout Standard
-返回工作区上一步：git reset HEAD^
-\end_layout
-
-\begin_layout Standard
-返回已经push的上一步：git push origin HEAD - -force
+\begin_layout Enumerate
+配置数据源
 \end_layout
 
 \end_body
