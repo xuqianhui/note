@@ -98,5 +98,31 @@ github常见问题
 git中文文件名：git config --global core.quotepath false
 \end_layout
 
+\begin_layout Standard
+忽略转换文件：编写一个.gitignore文件，内容如
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+*.lyx~ 
+\end_layout
+
+\begin_layout Plain Layout
+
+*.emergency 
+\end_layout
+
+\begin_layout Plain Layout
+
+.gitignore （神奇的是可以自己把自己给忽略了）
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
